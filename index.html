@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tailwind.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="bg-gray-800">
+        <div class="max-w-7x1 mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-red-400 px-3 py-2 rounded-md text-sm font-medium">products</a>
+                        <a href="#"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-red-400 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-red-400 px-3 py-2 rounded-md text-sm font-medium">Contacts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container sm:mx-auto mt-16 xl:p-0 xl:max-w-md" id="loginContainer">
+        <form action="" method="POST" id="loginForm"
+            class="flex rounded-md flex-col justify-between m-12 xl:m-0 bg-gray-800">
+            <div class="flex rounded-t-md flex-col bg-red-400 p-2">
+                <p class="text-white text-3xl">LOGIN</p>
+
+            </div>
+
+            <div class="flex flex-col p-2 m-2">
+                <input id="username" type="text" placeholder="Username"
+                    class="m-2 xl:mt-6 rounded-sm box-border focus:outline-none focus:ring focus:border-blue-350" />
+
+                <input id="email" type="text" placeholder="email"
+                    class="m-2 xl:mt-6 rounded-sm box-border focus:outline-none focus:ring focus:border-blue-350" />
+
+                <input id="password" type="text" placeholder="password"
+                    class="m-2 xl:mt-6 rounded-sm box-border focus:outline-none focus:ring focus:border-blue-350" />
+                    
+                <div class="flex flex-row items-center">
+                    <button onclick="preventLogin()" class="flex-grow mx-2 mt-2 xl:mt-4 bg-red-400 rounded-sm p-2 w-24 text-gray-800 font-medium focus:text-white focus:outline-none focus:ring-0">LOGIN</button>
+                    <p class="flex-grow items-center text-center text-red-400 mt-2 xl:mt-4">or</p>
+                    <button
+                        class="flex-grow mx-2 mt-2 xl:mt-4 bg-red-400 rounded-sm p-2 w-48 text-gray-800 font-medium focus:text-white focus:outline-none focus:ring-0">create
+                        account</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</body>
+
+<script>
+    let userName = document.getElementById('username').value;
+    let passWord = document.getElementById('password').value;
+    let email = document.getElementById('email').value;
+
+    function preventLogin() {
+        alert = " all required field must be filled ";
+    }
+</script>
+
+</html>

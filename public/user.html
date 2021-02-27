@@ -38,20 +38,15 @@ if (!isset($_SESSION['username'])) header("Location:index.php");
             </div>
         </div>
 
-        <div class="container flex flex-col bg-gray-800 max-w-full">
-            <div class="container-full bg-gray-500">
-                <div class="py-2 px-2 bg-gray-600">
-                    <h3>DailyNoteApp</h3>
-                </div>
-            </div>
+        <div class="container flex flex-col max-w-full">
 
-            <div class="container mt-16 py-2 px-2 mx-auto">
-                <div class="container rounded-md px-4 py-4">
-                    <div class="container bg-gray-700 p-4 flex flex-row justify-between">
-                        <h3>Type something</h3>
-                        <button type="submit" class="bg-gray-500">button</button>
+            <div class="container-md flex flex-row mt-16 py-2 px-2 mx-auto">
+                <div class="container px-4 py-4">
+                    <div class="container flex flex-row justify-between border border-gray-200">
+                        <input type="text" placeholder="make new note " class="self-center mx-auto p-2 focus:outline-none"></input>
+                        <button type="submit" class="bg-red-400 p-2 w-24 focus:outline-none">make</button>
                     </div>
-                    <div class="container mt-8 bg-gray-700 p-2">
+                    <div class="container p-2 text-center">
                         <h3>Still empty, make new notes</h3>
                     </div>
                 </div>

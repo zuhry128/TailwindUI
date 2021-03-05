@@ -51,17 +51,16 @@
                         <hr>
                         <input id="password" name="password" class="m-2 p-2 rounded-md focus:ring-0 focus:outline-none" type="password" placeholder="Password">
                         <hr>
+            <button id="SubmitLogin" name="SubmitLogin" class="mx-1 mt-8 bg-purple-500 p-2 rounded-md" type="submit">
+                <h3 class="font-bold text-white">Login</h3>
+            </button>
+            <a href="register.php" class="mt-2 text-center hover:text-red-400">dont have account? register now !</a>
                     </form>
                 </div>
                 <div class="container flex">
                     <img style="width: 500px;" src="../svg/undraw_Appreciation_re_p6rl.svg" alt="">
                 </div>
             </div>
-
-            <button id="SubmitLogin" name="SubmitLogin" class="mx-1 mt-8 bg-purple-500 p-2 rounded-md" type="submit">
-                <h3 class="font-bold text-white">Login</h3>
-            </button>
-            <a href="register.php" class="mt-2 text-center hover:text-red-400">dont have account? register now !</a>
         </div>
     </div>
 

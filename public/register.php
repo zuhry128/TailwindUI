@@ -1,3 +1,40 @@
+<?php
+
+require_once("../src/server/connection.php");
+
+if (isset($_POST['register'])) {
+
+    // filter data yang diinputkan
+    $name = $_POST['name'];
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    // enkripsi password
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+
+
+    // menyiapkan query
+    $insert = "INSERT INTO user (nama, username, email, password) 
+            VALUES (:name, :username, :email, :password)";
+    $stmt = $db->prepare($insert);
+
+    // bind parameter ke query
+    $params = array(
+        ":name" => $name,
+        ":username" => $username,
+        ":password" => $password,
+        ":email" => $email
+    );
+
+    // eksekusi query untuk menyimpan ke database
+    $saved = $stmt->execute($params);
+
+    // jika query simpan berhasil, maka user sudah terdaftar
+    // maka alihkan ke halaman login
+    if ($saved) header("Location: index.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,41 +75,20 @@
             </div>
         </nav>
     </header>
-    <div class="z-0 absolute top-0 w-full h-full bg-gray-900 " style="background-image: url('../assets/register_bg_2.png'); background-size: 100%; background-repeat: no-repeat">
 
-    </div>
+    <form action="" method="POST" class="flex flex-col justify-between p-4">
+        <input id="name" name="name" class="m-2 p-2 rounded-md focus:ring-0 focus:outline-none" type="text" placeholder="name">
+        <hr>
+        <input id="username" name="username" class="m-2 p-2 rounded-md focus:ring-0 focus:outline-none" type="text" placeholder="Username">
+        <hr>
+        <input id="email" name="email" class="m-2 p-2 rounded-md focus:ring-0 focus:outline-none" type="text" placeholder="Email">
+        <hr>
+        <input id="password" name="password" class="m-2 p-2 rounded-md focus:ring-0 focus:outline-none" type="password" placeholder="Password">
+        <input type="submit" value="daftar!" id="register" name="register" class="mx-1 mt-8 bg-purple-500 p-2 rounded-md" />
+        <hr>
+        <a href="index.php" class="text-center mt-2 hover:text-red-400">or login instead</a>
+    </form>
 
-    <div class="container mx-auto w-full h-full">
-        <div class="relative mx-auto max-w-lg max-h-screen flex flex-col px-4 py-16 bg-white rounded-md">
-            <div class="container flex flex-row">
-                <div class="container">
-                    <form action="login-handler.php" method="POST" class="flex flex-col justify-between p-4">
-                        <input id="name" name="name" class="m-2 p-2 rounded-md focus:ring-0 focus:outline-none" type="text" placeholder="Name">
-                        <hr>
-                        <input id="email" name="email" class="m-2 p-2 rounded-md focus:ring-0 focus:outline-none" type="text" placeholder="email address">
-                        <hr>
-                        <input id="username" name="username" class="m-2 p-2 rounded-md focus:ring-0 focus:outline-none" type="text" placeholder="Username">
-                        <hr>
-                        <input id="password" name="password" class="m-2 p-2 rounded-md focus:ring-0 focus:outline-none" type="password" placeholder="Password">
-                        <hr>
-                    </form>
-                </div>
-                <div class="container flex">
-                    <img style="width: 500px;" src="../svg/undraw_Appreciation_re_p6rl.svg" alt="">
-                </div>
-            </div>
-
-            <div class="container flex flex-row justify-between">
-                <button id="SubmitLogin" name="SubmitLogin" class="mx-1 mt-8 bg-purple-500 p-2 rounded-md w-3/6" type="submit">
-                    <h3 class="font-bold text-white">Login</h3>
-                </button>
-
-                <button id="SubmitRegister" name="SubmitRegister" class="mx-1 mt-8 bg-purple-500 p-2 rounded-md w-3/6" type="submit">
-                    <h3 class="font-bold text-white">register</h3>
-                </button>
-            </div>
-        </div>
-    </div>
 
 </body>
 <script src="https://kit.fontawesome.com/79f903a8c5.js" crossorigin="anonymous"></script>

@@ -1,16 +1,14 @@
 <?php
-$ServerName = "localhost";
-$DatabaseName = "dailynote";
-$UserName = "root";
-$ServerPassword = "";
+$db_host = "localhost";
+$db_name = "tailwind";
+$db_user = "root";
+$db_password = "";
 
-global $connection;
+global $db;
 
 try {
-    $connection = new PDO("mysql:host=$ServerName;dbname=$DatabaseName", $UserName, $ServerPassword);
-
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Successfully connected";
+    $db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_password);
 } catch (PDOException $error) {
-    echo "Connection failed" . $error->getMessage();
+    //tunjukkan error
+    die("Connection failed" . $error->getMessage());
 }

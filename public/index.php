@@ -1,8 +1,3 @@
-<?php
-include '../src/server/login-handler.php';
-
-include '../src/server/connection.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +42,7 @@ include '../src/server/connection.php';
 
     </div>
 
-    <div class="container mx-auto w-full h-full">
+    <div class="container mx-auto w-full">
         <div class="relative mx-auto max-w-lg max-h-screen flex flex-col px-4 py-16 bg-white rounded-md">
             <div class="container flex flex-row">
                 <div class="container">
@@ -63,15 +58,10 @@ include '../src/server/connection.php';
                 </div>
             </div>
 
-            <div class="container flex flex-row justify-between">
-                <button id="SubmitLogin" name="SubmitLogin" class="mx-1 mt-8 bg-purple-500 p-2 rounded-md w-3/6" type="submit">
-                    <h3 class="font-bold text-white">Login</h3>
-                </button>
-
-                <button id="SubmitRegister" name="SubmitRegister" class="mx-1 mt-8 bg-purple-500 p-2 rounded-md w-3/6" type="submit">
-                    <h3 class="font-bold text-white">register</h3>
-                </button>
-            </div>
+            <button id="SubmitLogin" name="SubmitLogin" class="mx-1 mt-8 bg-purple-500 p-2 rounded-md" type="submit">
+                <h3 class="font-bold text-white">Login</h3>
+            </button>
+            <a href="register.php" class="mt-2 text-center hover:text-red-400">dont have account? register now !</a>
         </div>
     </div>
 
